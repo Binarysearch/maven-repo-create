@@ -1,0 +1,8 @@
+my-app/.settings/
+my-app/.project
+my-app/.classpath
+my-app/target/
+my-lib/.settings/
+my-lib/.project
+my-lib/.classpath
+my-lib/target/

@@ -1,0 +1,16 @@
+Para generar el proyecto my-lib:
+mvn -B archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DgroupId=com.mycompany -DartifactId=my-lib
+
+
+Para generar el proyecto my-app:
+mvn -B archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DgroupId=com.mycompany.app -DartifactId=my-app
+
+
+Para copiar el jar de my-lib en un server con tomcat8 instalado
+ scp ./my-lib/target/my-lib-1.0.jar root@desenlace.net:/var/lib/tomcat8/webapps/desenlace.net/ROOT/repo/
+
+ 
+Para instalar el jar en el servidor
+cd /var/lib/tomcat8/webapps/desenlace.net/ROOT/repo/
+mvn install:install-file -DgroupId=com.mycompany.app -DartifactId=my-lib -Dversion=1.0 -Dfile=my-lib-1.0.jar -Dpackaging=jar -DgeneratePom=true -DlocalRepositoryPath=.  -DcreateChecksum=true
+
